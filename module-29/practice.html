@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <p>input total<input id="income" type="text" ></p>
+    <p>input 1 <input id="food" type="text"></p>
+    <p>input 2 <input id="rent" type="text"></p>
+    <p>input 3 <input id="clothes" type="text"></p>
+    <p>input cost: <span id="total-expenses">0</span></p>
+    <p>current balance: <span id="balance">0</span></p>
+    <button id="calculate">calculate</button>
+
+    <br><br>
+
+    <div>
+        <span>save:</span><input type="text" id="save-input" value="20">
+        <p>saving amount <span id="saving-amount">0</span></p>
+        <p>Remaining amount <span id="remaining-amount">0</span></p>
+        <button id="save-btn">save</button>
+    </div>
+
+
+    <script>
+        document.getElementById('calculate').addEventListener('click', function () {
+            const inputTotal = document.getElementById('income').value
+            const food = document.getElementById('food').value
+            const rent = document.getElementById('rent').value
+            const clothes = document.getElementById('clothes').value
+
+            const total = parseFloat(food) + parseFloat(rent) + parseFloat(clothes)
+            const totalExpenses = document.getElementById('total-expenses')
+            const totalExpensesFloat = parseFloat(totalExpenses.innerText)
+            totalExpenses.innerText = total
+            let minusValue = inputTotal - total
+         
+            const balance = document.getElementById('balance')
+            const inputCostFloat = parseFloat(balance)
+            balance.innerText = minusValue
+            if(inputTotal == '' || inputTotal < 0){
+                console.log('please valid number')
+            }
+            
+        })
+        document.getElementById('save-btn').addEventListener('click', function(){
+            const income = document.getElementById('income').value
+            const incomeTotal = parseFloat(income)
+
+            const saveInput = document.getElementById('save-input').value
+            const saveInputFloat = parseFloat(saveInput)
+
+            const savingCalculate = (incomeTotal / 100) * saveInputFloat;
+            
+            const savingAmount = document.getElementById('saving-amount')
+            savingAmount.innerText = savingCalculate
+
+            const remainingTotal = incomeTotal - savingCalculate
+
+            const remainingAmount = document.getElementById('remaining-amount')
+            remainingAmount.innerText = remainingTotal
+        
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <p>input total<input id="input-total" type="text" value="0"></p>
+    <p>input 1 <input id="inputOne" class="item" value="10" type="text"></p>
+    <p>input 2 <input id="inputTow" class="item" type="text"></p>
+    <p>input 3 <input id="inputThree" class="item" type="text"></p>
+    <p>input cost: <span id="current-balance">0</span></p>
+    <p>current balance: <span id="output">0</span></p>
+    <button id="calculate">calculate</button>
+
+    <br><br>
+
+    <div>
+        <span>save:</span><input type="text" id="save-input" value="20">
+        <p>saving amount <span id="saving-amount">0</span></p>
+        <p>Remaining amount <span id="remaining-amount">0</span></p>
+        <button id="save-btn">save</button>
+    </div>
+    <script>
+        document.getElementById('calculate').addEventListener('click', function () {
+            const inputTotal = document.getElementById('input-total').value
+            const inputOne = document.getElementById('inputOne').value
+            const inputTow = document.getElementById('inputTow').value
+            const inputThree = document.getElementById('inputThree').value
+
+            const total = parseFloat(inputOne) + parseFloat(inputTow) + parseFloat(inputThree)
+            const currentBalance = document.getElementById('current-balance')
+            const currentBalanceText = parseFloat(currentBalance.innerText)
+            currentBalance.innerText = total
+            let minusValue = inputTotal - total
+            // console.log(minusValue)
+            const inputCost = document.getElementById('output')
+            const inputCostFloat = parseFloat(inputCost)
+            inputCost.innerText = minusValue
+            // console.log(minusValue)
+        })
+        document.getElementById('save-btn').addEventListener('click', function(){
+            const inputTotal = document.getElementById('input-total').value
+            const inputTotalFloat = parseFloat(inputTotal)
+
+            const saveInput = document.getElementById('save-input').value
+            const saveInputFloat = parseFloat(saveInput)
+
+            const savingCalculate = (inputTotalFloat / 100) * saveInputFloat;
+            // console.log(savingCalculate)
+            const savingAmount = document.getElementById('saving-amount')
+            savingAmount.innerText = savingCalculate
+
+            const remainingTotal = inputTotalFloat - savingCalculate
+            // console.log(remainingTotal)
+
+            const remainingAmount = document.getElementById('remaining-amount')
+            remainingAmount.innerText = remainingTotal
+        
+        })
+    </script> -->
+</body>
+
+</html>

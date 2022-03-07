@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="helloH1">hello world</h1>
+    <h1 onclick="console.log('7')">click me</h1> -->
+
+   <button onclick="myFunc()">function</button>
+
+    <button onclick="console.log(alert('hi'))">Inline</button>
+    <button id="click-with-var">variable</button>
+    <button id="var-func">click va func</button>
+    <button id="listner">listene var</button>
+    <button id="listn">listene var func</button>
+    <button id="direct">listene direct</button>
+    <input id="type-input" type="text">
+    <button id="delete-btn" disabled>confirm</button><br>
+    <textarea name="" id="area" cols="60" rows="5"></textarea> <br>
+        <button id="post">post</button><br><br>
+
+        <input id="input" type="text">
+        <button id="myBtn" onclick="myFunc()">get value</button> -->
+        <button id="myButton">get value direct</button>
+        <p id="demo"></p>
+        <section id="section-container">
+            <!-- <ul id="ul-container">
+                <li class="item">list-item-1</li>
+                <li id="second-item" class="item">list-item-2</li>
+                <li class="item">list-item-3</li>
+                <li class="item">list-item-4</li>
+            </ul> -->
+          
+        </section>
+        <ul id="parent">
+            <li class="item">list-item-1</li>
+            <li class="item">list-item-2</li>
+            <li class="item">list-item-3</li>
+            <li class="item">list-item-4</li>
+        </ul>
+        <button id="add-item">add-items</button>
+
+        <div>
+            <input type="text" name="" id="input-1">
+            <input type="text" name="" id="input-2">
+            <button id="tow-input">get value tow input</button>
+            <p id="p-null"></p>
+        </div>
+        
+    <script>
+     
+        console.log(p)
+    document.getElementById('tow-input').addEventListener('click',function(event){
+        const inputOne = document.getElementById('input-1');
+        const pNull = document.getElementById('p-null');
+        pNull.value = inputOne.value;
+        console.log(inputOne)
+        })
+        const list = document.getElementsByClassName('item');
+        for(const items of list){
+            console.log(items);
+            items.addEventListener('click',function(event){
+                // document.getElementById('parent').removeChild(items)
+            event.target.parentNode.removeChild(event.target)
+            })
+        }
+        document.getElementById('add-item').addEventListener('click',function(){
+            const add = document.createElement('li');
+            add.classList.add('item')
+            add.innerText = 'hello';
+            const parent = document.getElementById('parent');
+            parent.appendChild(add)
+        })
+        document.getElementById('parent').addEventListener('click',function(event){
+            event.target.parentNode.removeChild(event.target)
+        })
+    
+        document.getElementById('add-item').addEventListener('click',function(){
+                    const addElement = document.createElement('li');
+                    addElement.innerText = 'hello';
+                    items.appendChild(addElement)
+                })
+
+        document.getElementById('section-container').addEventListener('click',function(){
+            console.log('section container clicked')
+        })
+        document.getElementById('second-item').addEventListener('click',function(close){
+            console.log('second item clicked')
+            close.stopImmediatePropagation()
+        })
+        document.getElementById('ul-container').addEventListener('click',function(){
+            console.log('ul container clicked')
+        })
+
+    // const typeInput = document.getElementById('type-input');
+       const typeInput = document.getElementById('type-input');
+        typeInput.addEventListener('keyup',function(e){
+           if (e.target.value === "CONFIRM") {
+               document.getElementById('delete-btn').removeAttribute('disabled')
+           }else{
+            document.getElementById('delete-btn').setAttribute('disabled',true)
+           }
+        })
+           
+        function myFunc(){
+            const demo = document.getElementById('demo');
+            demo.innerText = 'added some text';
+        }
+          console.log(demo)
+        document.getElementById('myButton').addEventListener('click',function(){
+            const nameField = document.getElementById('input');
+            const p = document.getElementById('demo');
+            p.innerText = nameField.value;
+            nameField.value = '';
+        })
+        document.getElementById('post').addEventListener('click',function(){
+            const area = document.getElementById('area');
+            // console.log(area.value)
+            const createEle = document.createElement('h3');
+            createEle.innerText = area.value;
+            area.value = '';
+            const helloH1 = document.getElementById('helloH1');
+            helloH1.appendChild(createEle);
+        })
+
+        // click variable & function 
+        const varFunc = document.getElementById('var-func');
+        varFunc.onclick = clickVariable;
+
+        function clickVariable() {
+            document.body.style.backgroundColor = 'lightgrey'
+        }
+        const clickVar = document.getElementById('click-with-var');
+        clickVar.onclick = function () {
+            document.body.style.backgroundColor = 'grey'
+            // console.log('clickvar')
+        }
+
+        function myFunc() {
+            document.body.style.backgroundColor = 'blue'
+        }
+
+        const listene = document.getElementById('listner');
+        listene.addEventListener('click', clickListenerVar);
+        function clickListenerVar(){
+           document.body.style.backgroundColor = 'hotpink'
+        }
+        const listen = document.getElementById('listn');
+        listen.addEventListener('click',function(){
+            document.body.style.backgroundColor = 'tomato'
+        });
+        
+        document.getElementById('direct').addEventListener('click',function(){
+          document.body.style.backgroundColor = 'orange'
+        })
+    </script>
+</body>
+
+</html>

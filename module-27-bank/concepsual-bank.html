@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            display: flex;
+            justify-content: space-around;
+        }
+        #input-parent{
+            display: flex;
+            justify-content:space-evenly;
+        }
+    </style>
+      <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+</head>
+<body>
+    <div id="parent">
+        <div>
+            <h1>$<span id="deposit-amount">00</span></h1>
+            <h5>Deposit</h5>
+        </div>
+        <div>
+            <h1>$<span id="withdraw-amount">00</span></h1>
+            <h5>Withdraw</h5>
+        </div>
+        <div>
+            <h1>$<span id="total-amount">10</span></h1>
+            <h5>Total Bank</h5>
+        </div>
+    </div>
+
+    <div id="input-parent">
+        <div>
+            <input id="deposit-field" type="text"> <br> <br>
+            <button id="deposit">Deposit</button>
+        </div>
+        <div>
+            <input id="withdraw-field" type="text"> <br> <br>
+            <button id="withdraw">withdraw</button>
+        </div>
+    </div>
+    <script src="concepsual-bank.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="change">change element</h2>
+    <h1>js Milestone 5</h1>
+    <article>
+        <h2 id="firstH2">hello js dom-1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non possimus unde laboriosam deleniti earum similique eaque deserunt illum quasi necessitatibus natus eligendi rem, error sed voluptatem aut, quisquam voluptatum alias.</p>
+    </article>
+    <article id="hello">
+        <h2 class="class-h2" style="text-align: center; margin-left: -30px;">hello js dom-2</h2>
+        <p>Molestias saepe dicta qui id cum doloremque temporibus ipsum. Repellat vel similique porro aspernatur vero beatae repudiandae harum tempora rem fugit ipsa eveniet, quo sed iure earum odio! Sint, iusto.</p>
+    </article>
+    <article>
+        <h2>hello js dom-3</h2>
+        <p>Culpa accusamus minima unde suscipit corporis natus itaque neque. Blanditiis, veritatis asperiores. Fugiat illo officiis nam, quos distinctio dolorem, temporibus architecto, praesentium placeat neque qui hic id veritatis facilis nisi?</p>
+    </article>
+    <article id="lastArticle">
+        <h2>hello js dom-4 okk</h2>
+        <p>Nesciunt obcaecati veniam error dicta officiis aperiam perspiciatis porro at quidem incidunt atque exercitationem a quos placeat impedit eum nemo quas adipisci quam rem qui quaerat, totam dolorem ab! Odit.</p>
+    </article>
+    <p id="addElement">changed p</p>
+    <p id="demo"></p>
+    <script>
+        var student = {
+            name: "hamed",
+            age: "26"
+        }
+
+        var body = document.body;
+        console.log(body)
+        console.log("test html file script tag")
+
+        const tagName = document.getElementsByTagName('h2');
+        for(const myH2 of tagName){
+            console.log(myH2.innerHTML)
+        }
+        // 24-5 Capture and change Element by using getElementById
+        let setStyle = document.getElementById('firstH2');
+        setStyle.style.color = 'red';
+        setStyle.style.marginLeft = '300px';
+        setStyle.style.fontSize = '100px';
+        setStyle.style.padding = '20px 50px'
+        // 24-6 Explore getElementsByClassName and querySelectorAll
+  
+       const classH2 = document.getElementsByClassName('class-h2')[0];
+        classH2.style.color = 'red';
+        classH2.style.marginLeft = '300px';
+        classH2.style.fontSize = '20px';
+        classH2.style.padding = '20px 50px'
+
+        document.querySelector('p').style.color = 'red';
+        const all = document.querySelectorAll("p");
+        for(const style of all){
+            style.style.color = 'red';
+        style.style.marginLeft = '30px';
+        style.style.fontSize = '50px';
+        style.style.padding = '20px 10px'
+        }
+        // 24-8 Create HTML elements using Javascript and appendChild
+        
+        const article = document.createElement('article');
+        const h3 = document.createElement('h3');
+        h3.innerText = "create element h3";
+        const p = document.createElement('p');
+        p.innerHTML = `<p>error dicta officiis aperiam perspiciatis porro at quidem</p>`;
+        const add = document.getElementById("addElement");
+        add.appendChild(h3);
+        add.appendChild(p);
+        add.classList.add("classH2")
+        const change = document.getElementsByTagName("h2");
+        for(const addNew of change){
+            addNew.innerText = 'hello world change element';
+            addNew[0].innerHTML;
+        }
+       const now = document.getElementById('addElement');
+       now.document.getElementById("demo").innerHTML = now[0].innerHTML
+       var addNewElement = document.createElement('h6');
+       addNewElement.innerText = 'lorem ipsum dollar'
+    //    addNewElement.id = 'h-6';
+    //    addNewElement.className = 'h6Element';
+    //    addNewElement.setAttribute('title','hello world');
+        const append = document.getElementById('lastArticle');
+        append.appendChild(addNewElement)
+    </script>
+    <script src="module-24.js"></script>
+</body>
+</html>

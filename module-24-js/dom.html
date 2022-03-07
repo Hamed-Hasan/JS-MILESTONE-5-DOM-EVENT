@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<main style="padding: 5px; border: 1px solid red;">
+    <section style="padding: 15px; border: 1px solid rgb(181, 105, 105);margin: 30px;">
+        <h2 id="h2">hello</h2>
+<h4 id="h4">i'm a heading four</h4>
+<form action="#" method="get">
+    <input type="text">
+    <input type="submit">
+</form>
+
+<ul class="ul">
+    <li class="list-item">list-item-1</li>
+    <li class="list-item">list-item-2</li>
+    <li class="list-item">list-item-3</li>
+    <li class="list-item">list-item-4</li>
+</ul>
+    </section>
+</main>
+    <script>
+//   documet Object 
+       console.dir(document.domain)
+       console.dir(document.URL)
+       console.dir(document.title)
+       console.dir(document.doctype)
+       console.dir(document.head)
+       console.dir(document.body)
+       console.dir(document.all)
+       console.dir(document.all[10])
+       console.dir(document.body)
+       console.dir(document.forms)
+       console.dir(document.links)
+       console.dir(document.images)
+
+    //    getElement by id 
+        var h2 = document.getElementById('h2');
+        var h4 = document.getElementById('h4');
+        h2.textContent = 'world';
+        h2.innerText = 'dunya'
+        console.log(h2.innerText);
+        h4.innerHTML = '<h1>change h4</h1>';
+        h4.style.borderBottom = '3px solid red'
+            //  getElement by class
+        var item = document.getElementsByClassName("list-item");
+        console.log(item[1]);
+        item[1].textContent = 'change list item';
+        item[1].style.fontWeight = 'bold';
+        item[1].style.backgroundColor = 'yellow'
+        // class not working this rules 
+        // item.style.backgroundColor = 'red';
+
+        for(i = 0;i < item.length;i++){
+            item[i].style.backgroundColor = 'red'
+        }
+
+        // quary selector 
+        var h4 = document.querySelector('#h4');
+        h4.style.borderBottom = '4px solid grey';
+        var input = document.querySelector('input');
+        input.value = 'hello world';
+        var submit = document.querySelector('input[type="submit"]');
+        submit.value = 'SEND';
+        submit.style.backgroundColor = 'orange'
+        var item = document.querySelector('.list-item');
+        item.style.color = 'red'
+        var lastItem = document.querySelector('.list-item:last-child');
+        lastItem.style.color = 'blue'
+        var nthItem = document.querySelector('.list-item:nth-child(3)');
+        nthItem.style.color = 'brown'
+
+        // quary selector all
+        var odd = document.querySelectorAll('li:nth-child(odd)');
+        var even = document.querySelectorAll('li:nth-child(even)');
+
+        for(let i = 0;i < odd.length;i++){
+            odd[i].style.backgroundColor = 'grey';
+            even[i].style.backgroundColor = 'yellow';
+        }
+
+        // traversing the dom 
+            var item = document.querySelector('ul');
+            // parentNode 
+            item.parentNode.style.backgroundColor = 'red';
+            console.log(item.parentNode);
+
+            // parentelement 
+            var parentele = document.querySelector('li');
+            parentele.parentElement.style.backgroundColor = 'red'
+            parentele.parentElement.style.backgroundColor = 'blue';
+
+            // children 
+            
+            item.firstElementChild.textContent = 'hello';
+            item.lastChild.textContent = 'hello';
+            item.previousSibling;
+            console.log(item)
+
+            // createElement 
+           
+            var newDiv = document.createElement('div');
+            newDiv.className = 'newClass';
+            newDiv.id = 'newId';
+            newDiv.setAttribute('title','hello world');
+            var newDivText = document.createTextNode('hello javascript');
+            newDiv.appendChild(newDivText);
+            var main = document.querySelector('section main');
+            var h2 = document.querySelector('section h2');
+            console.log(newDiv)
+            main.insertBefore(newDiv,h2)
+    </script>
+</body>
+</html>
